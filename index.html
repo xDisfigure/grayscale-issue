@@ -44,21 +44,24 @@
       inset: 0;
       animation-fill-mode: forwards;
       animation-iteration-count: infinite;
-      animation-duration: 10s;
+      animation-duration: 20s;
       animation-name: grayscale-loop;
   }
-
+  
   @keyframes grayscale-loop {
-      0% {
+      /* 2s */
+      10% {
           backdrop-filter: grayscale(0);
       }
 
+      /* 2.5s */
       15%,
-      85% {
+      /* 12s */
+      60% {
           backdrop-filter: grayscale(1);
       }
-
-      100% {
+      /* 12.5s */
+      65% {
           backdrop-filter: grayscale(0);
       }
   }
