@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<style>
+  html,body { margin: 0; padding: 0; }
+
+  .container {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%;
+  }
+
+  .video-container {
+      position: absolute;
+      height: 100%;
+      width: 33.33%;
+      top: 0;
+      overflow: hidden;
+  }
+  .video-container:nth-child(1) {
+    left: 0;
+  }
+
+  .video-container:nth-child(2) {
+    left: 33.33%;
+  }
+
+  .video-container:nth-child(3) {
+    left: 66.66%;
+  }
+
+  video {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .grayscale {
+      position: absolute;
+      inset: 0;
+      animation-fill-mode: forwards;
+      animation-iteration-count: infinite;
+      animation-duration: 10s;
+      animation-name: grayscale-loop;
+  }
+
+  @keyframes grayscale-loop {
+      0% {
+          backdrop-filter: grayscale(0);
+      }
+
+      15%,
+      85% {
+          backdrop-filter: grayscale(1);
+      }
+
+      100% {
+          backdrop-filter: grayscale(0);
+      }
+  }
+
+</style>
+<div class="container">
+  <div class="video-container">
+    <video src="https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_10mb.mp4?woe" autoplay muted></video>
+  </div>
+  <div class="video-container">
+    <video src="https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_10mb.mp4?wo3eqe" autoplay muted></video>
+  </div>
+  <div class="video-container">
+    <video src="https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_10mb.mp4?wdddoe" autoplay muted></video>
+  </div>
+  <div class="grayscale"></div>
+</div>
+</body>
+</html>
