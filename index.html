@@ -39,31 +39,21 @@
     object-fit: cover;
   }
 
-  .grayscale {
+  #layer {
       position: absolute;
       inset: 0;
-      animation-fill-mode: forwards;
-      animation-iteration-count: infinite;
-      animation-duration: 20s;
-      animation-name: grayscale-loop;
   }
-  
-  @keyframes grayscale-loop {
-      /* 2s */
-      10% {
-          backdrop-filter: grayscale(0);
-      }
 
-      /* 2.5s */
-      15%,
-      /* 12s */
-      60% {
-          backdrop-filter: grayscale(1);
-      }
-      /* 12.5s */
-      65% {
-          backdrop-filter: grayscale(0);
-      }
+  .grayscale {
+      animation-fill-mode: forwards;
+      animation-duration: .5s;
+      animation-name: grayscale-in;
+  }
+
+  @keyframes grayscale-in {
+    to {
+        backdrop-filter: grayscale(1);
+    }
   }
 
 </style>
@@ -77,7 +67,13 @@
   <div class="video-container">
     <video src="https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_10mb.mp4?wdddoe" autoplay muted></video>
   </div>
-  <div class="grayscale"></div>
+  <div id=layer></div>
 </div>
+<script>
+  const delay = 30;
+  setTimeout(() => {
+    layer.classList.add('grayscale')
+  }, delay * 1000)
+</script>
 </body>
 </html>
